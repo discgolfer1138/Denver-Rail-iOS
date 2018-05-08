@@ -51,6 +51,8 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 
     [self.stations addObject:[[Station alloc] initWithColumnName:@"10th & Osage Station"
                                                         latitude:39.7318 longitude:-105.0056 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"13th Ave Station"
+                                                        latitude:39.7345 longitude:-104.825 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"16th & California Station"
                                                         latitude:39.744919 longitude:-104.992428 southOnly:NO northOnly:YES eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"16th & Stout Station"
@@ -65,22 +67,30 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
                                                         latitude:39.753392 longitude:-104.979764 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"27th & Welton Station"
                                                        latitude:39.755233 longitude:-104.977370 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"2nd & Abilene Station"
+                                                        latitude:39.7189 longitude:-104.826 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"30th & Downing Station"
                                                          latitude:39.758800 longitude:-104.973572 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"38th & Blake Station"
                                                         latitude:39.770923 longitude:-104.973076 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"40th & Colorado Station"
                                                         latitude:39.775912 longitude:-104.942201 southOnly:NO northOnly:NO eastWest:YES]];
-    [self.stations addObject:[[Station alloc] initWithColumnName:@"40th Ave & Airport Blvd - Gateway Park S"
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"40th Ave & Airport Blvd - Gateway Park Station"
                                                         latitude:39.769905 longitude:-104.787682 southOnly:NO northOnly:NO eastWest:YES]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"41st & Fox Station"
+                                                        latitude:39.7727 longitude:-104.995 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"61st & Pena Station"
                                                         latitude:39.806895 longitude:-104.783999 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Alameda Station"
                                                          latitude:39.7084 longitude:-104.9929 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Arapahoe at Village Center Station"
                                                          latitude:39.6002 longitude:-104.8884 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Arvada Ridge Station"
+                                                        latitude:39.792 longitude:-105.111 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Auraria West Station"
                                                          latitude:39.741300 longitude:-105.008970 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Aurora Metro Center Station"
+                                                        latitude:39.7084 longitude:-104.819 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Belleview Station"
                                                          latitude:39.6275 longitude:-104.9043 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Central Park Station"
@@ -105,8 +115,14 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
                                                         latitude:39.6776 longitude:-104.9928 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Federal Center Station"
                                                         latitude:39.711852 longitude:-105.125347 southOnly:NO northOnly:NO eastWest:YES]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Fitzsimons Station"
+                                                        latitude:39.755 longitude:-104.841 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Florida Station"
+                                                        latitude:39.6899 longitude:-104.828 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Garrison Station"
                                                         latitude:39.736608 longitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Iliff Station"
+                                                        latitude:39.6735 longitude:-104.826 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"I-25 & Broadway Station"
                                                         latitude:39.701523 longitude:-104.990158 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Jeffco Government Center Station"
@@ -131,6 +147,8 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
                                                         latitude:39.6134 longitude:-104.8961 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Oxford - City of Sheridan Station"
                                                         latitude:39.6429 longitude:-105.0048 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Pecos Junction Station"
+                                                        latitude:39.8054 longitude:-105.004 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Peoria Station"
                                                         latitude:39.767553 longitude:-104.850501 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Pepsi Center / Elitch Gardens Station"
@@ -153,6 +171,10 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
                                                         latitude:39.6852 longitude:-104.9648 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Wadsworth Station"
                                                         latitude:39.736664 longitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Westminster Station"
+                                                        latitude:39.8231 longitude:-105.028 southOnly:NO northOnly:NO eastWest:NO]];
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Wheat Ridge / Ward Road Station"
+                                                        latitude:39.7895 longitude:-105.133 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Yale Station"
                                                         latitude:39.6686 longitude:-104.927 southOnly:NO northOnly:NO eastWest:NO]];
 }

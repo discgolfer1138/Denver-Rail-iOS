@@ -9,13 +9,16 @@
 #import "Station.h"
 
 typedef NS_ENUM(NSUInteger, RailLine) {
-    kCLine = 0,
+    kALine = 0,
+    kBLine,
+    kCLine,
     kDLine,
     kELine,
     kFLine,
+    kGLine,
     kHLine,
+    kRLine,
     kWLine,
-    kAline,
 };
 
 @interface ScheduledStop : NSObject

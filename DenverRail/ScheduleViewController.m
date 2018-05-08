@@ -9,7 +9,7 @@
 #import "TimetableSearchUtility.h"
 #import "ScheduledStop.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Math.h"
+#import "math.h"
 #import "AppDelegate.h"
 #import "LocalizedStrings.h"
 #import "Constants.h"
@@ -184,6 +184,12 @@ NSString *const MountainTimeZone = @"US/Mountain";
         // Specific line letter for the graphic 
         NSString *line = nil;
         switch (currentStop.line) {
+            case kALine:
+                line = @"a";
+                break;
+            case kBLine:
+                line = @"b";
+                break;
             case kCLine:
                 line = @"c";
                 break;
@@ -196,14 +202,17 @@ NSString *const MountainTimeZone = @"US/Mountain";
             case kFLine:
                 line = @"f";
                 break;
+            case kGLine:
+                line = @"g";
+                break;
             case kHLine:
                 line = @"h";
                 break;
+            case kRLine:
+                line = @"r";
+                break;
             case kWLine:
                 line = @"w";
-                break;
-            case kAline:
-                line = @"a";
                 break;
         }
         

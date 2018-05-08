@@ -71,19 +71,27 @@
         int stopId = [rs intForColumn:@"stop_id"];
         BOOL isHighlighted = NO;
       
-        RailLine line = kCLine;
-        if ([routeString contains:@"D"]) {
+        RailLine line = kALine;
+        if ([routeString contains:@"A"]) {
+            line = kALine;
+        } else if ([routeString contains:@"B"]) {
+            line = kBLine;
+        } else if ([routeString contains:@"C"]) {
+            line = kCLine;
+        } else if ([routeString contains:@"D"]) {
             line = kDLine;
         } else if ([routeString contains:@"E"]) {
             line = kELine;
         } else if ([routeString contains:@"F"]) {
             line = kFLine;
+        } else if ([routeString contains:@"G"]) {
+            line = kGLine;
         } else if ([routeString contains:@"H"]) {
             line = kHLine;
+        } else if ([routeString contains:@"R"]) {
+            line = kRLine;
         } else if ([routeString contains:@"W"]) {
             line = kWLine;
-        } else if ([routeString contains:@"A"]) {
-            line = kAline;
         }
       
         NSDate *dbDate = [TimetableSearchUtility convertDBDateIntToDate:timeInt withCalendar:calendar];
