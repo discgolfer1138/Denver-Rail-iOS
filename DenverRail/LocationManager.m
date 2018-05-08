@@ -114,7 +114,7 @@ static LocationManager *sharedSingleton;
 				[self locationServicesNotAvailable];
 				break;
 			}
-			case kCLAuthorizationStatusAuthorized:
+			case kCLAuthorizationStatusAuthorizedAlways:
 			case kCLAuthorizationStatusAuthorizedWhenInUse:
 			{
 				// Location services are available and app is allowed to use them

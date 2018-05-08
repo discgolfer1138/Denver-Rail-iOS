@@ -21,9 +21,9 @@
 // Gets the time stations of the station with date and direction
 +(NSArray *)getTimetableWithDate:(NSDate *)date andStation:(Station *)station directionIsNorth:(BOOL)isNorth {
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
-    NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitWeekday fromDate:date];
     NSInteger weekday = [dateComponents weekday];
 
     NSString *scheduleCode = @"MT";
@@ -117,7 +117,7 @@
     
     if ([stops count] < limitInt) {
         NSDate *today = [NSDate date];
-        NSDateComponents *todayComponents = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:today];
+        NSDateComponents *todayComponents = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:today];
         [todayComponents setHour:0];
         [todayComponents setMinute:0];
         [todayComponents setSecond:1];
@@ -213,11 +213,11 @@
 // US federal holidays (RTD holidays)
 +(BOOL)isHoliday:(NSDate *)date {
   
-  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-  NSDateComponents *dateComponents = [calendar components:(NSWeekOfMonthCalendarUnit |
-                                                           NSMonthCalendarUnit |
-                                                           NSDayCalendarUnit |
-                                                           NSWeekdayCalendarUnit) fromDate:date];
+  NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+  NSDateComponents *dateComponents = [calendar components:(NSCalendarUnitWeekOfMonth |
+                                                           NSCalendarUnitMonth |
+                                                           NSCalendarUnitDay |
+                                                           NSCalendarUnitWeekday) fromDate:date];
   
   NSInteger day = [dateComponents day];
   NSInteger month = [dateComponents month];
@@ -243,7 +243,7 @@
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:7];
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
-    NSDateComponents *newDateComponents = [calendar components:(NSMonthCalendarUnit) fromDate:newDate];
+    NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
     if ([newDateComponents month] == 6)
       return YES;
@@ -256,7 +256,7 @@
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:-7];
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
-    NSDateComponents *newDateComponents = [calendar components:(NSMonthCalendarUnit) fromDate:newDate];
+    NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
     if ([newDateComponents month] == 8)
       return YES;
@@ -268,7 +268,7 @@
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:7];
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
-    NSDateComponents *newDateComponents = [calendar components:(NSMonthCalendarUnit) fromDate:newDate];
+    NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
     if ([newDateComponents month] == 12)
       return YES;
@@ -306,11 +306,11 @@
   
   NSDate *dateFromDBHMS = [dateFormatter dateFromString:dateString];
   
-  NSDateComponents *dateComponentsFromDBHMS = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
+  NSDateComponents *dateComponentsFromDBHMS = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond)
                                                           fromDate:dateFromDBHMS];
   
   NSDate *today = [NSDate date];
-  NSDateComponents *todayComponents = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+  NSDateComponents *todayComponents = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                                                   fromDate:today];
   
   [todayComponents setHour:[dateComponentsFromDBHMS hour]];

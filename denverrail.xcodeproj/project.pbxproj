@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F2B2E020A26B2E000CE25F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F2B2DF20A26B2E000CE25F /* Images.xcassets */; };
 		27476072173D6A4300302EAF /* updating denverrail tables.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 27476071173D6A4300302EAF /* updating denverrail tables.rtfd */; };
 		27F49DAD174285550064BFA0 /* FMDB-MIT-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */; };
 		27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAE1742A62E0064BFA0 /* w-line-circle.png */; };
@@ -129,7 +130,6 @@
 		39EC491015228633009D6649 /* list-background-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39EC490C15228633009D6649 /* list-background-bottom@2x.png */; };
 		39EC491115228633009D6649 /* list-background-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39EC490D15228633009D6649 /* list-background-top@2x.png */; };
 		39F5807E151BDE3F006661CA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F5807D151BDE3F006661CA /* libz.dylib */; };
-		4C7775B919E2FD7F004FECD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775B819E2FD7F004FECD4 /* Images.xcassets */; };
 		4C7775BD19E3023B004FECD4 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */; };
 		4C7775BE19E3023B004FECD4 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */; };
 		7E66BDA420A016BC0062FCA7 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7E66BDA320A0151E0062FCA7 /* schedules.sqlite */; };
@@ -186,6 +186,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19F2B2DF20A26B2E000CE25F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
 		27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FMDB-MIT-License.txt"; sourceTree = "<group>"; };
 		27F49DAE1742A62E0064BFA0 /* w-line-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle.png"; sourceTree = "<group>"; };
@@ -327,7 +328,6 @@
 		39EC490D15228633009D6649 /* list-background-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-top@2x.png"; sourceTree = "<group>"; };
 		39EFA083153535DE00A2A9E0 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		39F5807D151BDE3F006661CA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		4C7775B819E2FD7F004FECD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../denverrail/Images.xcassets; sourceTree = "<group>"; };
 		4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = SOURCE_ROOT; };
 		4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = SOURCE_ROOT; };
 		7E66BDA320A0151E0062FCA7 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
@@ -629,8 +629,8 @@
 		39E7F0E714DE05F0007C8617 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19F2B2DF20A26B2E000CE25F /* Images.xcassets */,
 				8C7014361CDD0E5300DE99B0 /* Fonts */,
-				4C7775B819E2FD7F004FECD4 /* Images.xcassets */,
 				4C7775BA19E301FE004FECD4 /* Old Icons & Launch Images */,
 				EADBE1CA15368EDF00D88451 /* Audio */,
 				39EA31861532440900DAD220 /* flips3.aac */,
@@ -766,7 +766,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Tack Mobile";
 				TargetAttributes = {
 					39E7F0DB14DE05F0007C8617 = {
@@ -826,7 +826,6 @@
 				39E638E814E3462C006FC1D6 /* e-line-circle.png in Resources */,
 				39E638E914E3462C006FC1D6 /* d-line-circle@2x.png in Resources */,
 				39E638EA14E3462C006FC1D6 /* d-line-circle.png in Resources */,
-				4C7775B919E2FD7F004FECD4 /* Images.xcassets in Resources */,
 				39E638EB14E3462C006FC1D6 /* c-line-circle@2x.png in Resources */,
 				7E66BDB120A01EF70062FCA7 /* r-line-square.png in Resources */,
 				39E638EC14E3462C006FC1D6 /* c-line-circle.png in Resources */,
@@ -868,6 +867,7 @@
 				39EC491015228633009D6649 /* list-background-bottom@2x.png in Resources */,
 				39EC491115228633009D6649 /* list-background-top@2x.png in Resources */,
 				39D99D2D152BC56200F3C2AE /* SearchViewController.xib in Resources */,
+				19F2B2E020A26B2E000CE25F /* Images.xcassets in Resources */,
 				399C26F2152CBDFC008EC58F /* search-line.png in Resources */,
 				399C26F3152CBDFC008EC58F /* search-line@2x.png in Resources */,
 				399C26F9152CBEE6008EC58F /* white-button@2x.png in Resources */,
@@ -1012,11 +1012,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1041,11 +1051,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
@@ -1055,11 +1066,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1076,11 +1097,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1095,7 +1118,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1120,7 +1143,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

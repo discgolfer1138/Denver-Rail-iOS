@@ -766,12 +766,12 @@
 // Sets up the time picker
 -(IBAction)datePickerNowTapped {
     NSDate *now = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     // Always use mountain no matter where we are
     [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *nowComponents = [calendar components:
-                                       (NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
+                                       (NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
     
     NSInteger weekday = [nowComponents weekday];
     
@@ -842,7 +842,7 @@
     else
         self.timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
     
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [cal setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *comps = [NSDateComponents new];
     [comps setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
