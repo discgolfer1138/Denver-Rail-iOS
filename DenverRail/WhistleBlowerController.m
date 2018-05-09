@@ -217,12 +217,12 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
 }
 
 - (void) dealloc {
-    self.recorder = nil, 
-    self.timer = nil,
-    self.shortWhistle = nil,
-    self.toot = nil,
-    self.mediumWhistle = nil,
-    self.loudLongWhistle = nil,
+    (void)(self.recorder = nil), 
+    (void)(self.timer = nil),
+    (void)(self.shortWhistle = nil),
+    (void)(self.toot = nil),
+    (void)(self.mediumWhistle = nil),
+    (void)(self.loudLongWhistle = nil),
     self.currentPlayer = nil;
     [self stopSampling];
 }
