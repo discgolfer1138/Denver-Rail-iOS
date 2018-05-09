@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -769,9 +769,6 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Tack Mobile";
 				TargetAttributes = {
-					39E7F0DB14DE05F0007C8617 = {
-						DevelopmentTeam = 9B83N8S7VW;
-					};
 					8CA25C171CFF38340092DBCB = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 39E7F0DB14DE05F0007C8617;
@@ -779,7 +776,7 @@
 				};
 			};
 			buildConfigurationList = 39E7F0D614DE05F0007C8617 /* Build configuration list for PBXProject "denverrail" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1115,6 +1112,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75WHKE7ZFC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
@@ -1124,10 +1123,11 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tackmobile.denverrail;
+				PRODUCT_BUNDLE_IDENTIFIER = io.thechad.denverrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1139,7 +1139,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75WHKE7ZFC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
@@ -1149,10 +1151,11 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tackmobile.denverrail;
+				PRODUCT_BUNDLE_IDENTIFIER = io.thechad.denverrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1172,10 +1175,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = denverrailUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tack.denverrailUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = denverrail;
 			};
@@ -1197,7 +1205,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = denverrailUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tack.denverrailUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
