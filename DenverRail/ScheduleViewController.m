@@ -394,8 +394,9 @@ NSString *const MountainTimeZone = @"US/Mountain";
     if (playSounds) [self.audioPlayer play];    
 }
 
-// Keep portrait oreintation
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+// Keep portrait orientation
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
+
 @end
