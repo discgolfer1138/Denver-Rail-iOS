@@ -20,15 +20,15 @@ class denverrailUITests: XCTestCase {
     func testOpenThenCloseMap() {
         app.buttons["mapButton"].tap()
         
-        let webViewQuery:XCUIElementQuery = app.descendantsMatchingType(.Any)
-        let pdfMapView = webViewQuery.elementMatchingType(.Any, identifier:"Map View")
+        let webViewQuery:XCUIElementQuery = app.descendants(matching: .any)
+        let pdfMapView = webViewQuery.element(matching: .any, identifier:"Map View")
         XCTAssertNotNil(pdfMapView)
-        XCTAssertTrue(pdfMapView.hittable)
+        XCTAssertTrue(pdfMapView.isHittable)
         
         //Close map and make sure table with Eastbound/Westbound is showing
         app.buttons["mapButton"].tap()
         let eastboundButton = app.buttons["South Or East Button"]
-        XCTAssertTrue(eastboundButton.hittable)
+        XCTAssertTrue(eastboundButton.isHittable)
     }
     
     func testAutoButton() {
@@ -41,15 +41,15 @@ class denverrailUITests: XCTestCase {
         XCTAssertNotNil(datePicker)
         
         //Set picker to Holiday then dismiss
-        app.pickerWheels.elementBoundByIndex(0).adjustToPickerWheelValue("Holiday")
+        app.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Holiday")
         app.buttons["Done"].tap()
         
         //Check that label showing Holiday exists
         let label = app.staticTexts["Holiday"]
         let exists = NSPredicate(format: "exists == true")
         
-        expectationForPredicate(exists, evaluatedWithObject: label, handler: nil)
-        waitForExpectationsWithTimeout(5, handler: nil)
+        expectation(for: exists, evaluatedWith: label, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testSearch () {
@@ -75,29 +75,24 @@ class denverrailUITests: XCTestCase {
         //Select Union to dismiss search and check Union was selected
         app.tables.staticTexts["Union "].tap()
         
-        let stationNameQuery:XCUIElementQuery = app.descendantsMatchingType(.Any)
-        let stationNameLabel = stationNameQuery.elementMatchingType(.Any, identifier:"Station Name Label")
+        let stationNameQuery:XCUIElementQuery = app.descendants(matching: .any)
+        let stationNameLabel = stationNameQuery.element(matching: .any, identifier:"Station Name Label")
         XCTAssertTrue(stationNameLabel.label == "Union Station")
     }
     
     func testNowButton () {
         //Get time test is being run
         let now:NSDate = NSDate()
-        guard let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian) else {
-            //Could not initialize calendar
-            return
-        }
-        guard let mountainTime = NSTimeZone.init(name:"US/Mountain") else {
-            //Could not initialize Mountain time
-            return
-        }
-        calendar.timeZone = mountainTime
-        let unitFlags: NSCalendarUnit = [ .Hour, .Minute]
-        let nowComponents = calendar.components(unitFlags, fromDate: now)
+        let calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
+        calendar.timeZone = TimeZone.init(identifier: "MST")
+
+        let comp = calendar.dateComponents([.hour, .minute], from: now)
+        let hour = comp.hour
+        let minute = comp.minute
         
         var hour = nowComponents.hour
         let isPM : Bool
-        if hour > 12 {
+        if hour! > 12 {
             isPM = true
             hour -= 12
         } else if hour == 12 {
@@ -123,9 +118,9 @@ class denverrailUITests: XCTestCase {
         XCTAssertNotNil(datePicker)
         
         //Mess up the picker
-        app.pickerWheels.elementBoundByIndex(0).adjustToPickerWheelValue("Holiday")
-        app.pickerWheels.elementBoundByIndex(1).adjustToPickerWheelValue("12")
-        app.pickerWheels.elementBoundByIndex(2).adjustToPickerWheelValue("59")
+        app.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Holiday")
+        app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "12")
+        app.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "59")
 
         
         //Tap NOW, dismiss and then make sure the current times show up
@@ -136,6 +131,6 @@ class denverrailUITests: XCTestCase {
         let label = app.staticTexts[constructedTimeString]
         let exists = NSPredicate(format: "exists == true")
         expectationForPredicate(exists, evaluatedWithObject: label, handler: nil)
-        waitForExpectationsWithTimeout(5, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
 }
