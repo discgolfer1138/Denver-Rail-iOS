@@ -56,10 +56,10 @@ class denverrailUITests: XCTestCase {
         //Tap to open Search
         app.buttons["Station Search Button"].tap()
         
-        //Check number of rows is 53 for all 53 stations
+        //Check number of rows is 64 for all 64 stations
         let tablesQuery = app.tables
         let count = tablesQuery.cells.count
-        XCTAssert(count == 53)
+        XCTAssert(count == 64)
         
         //Search for Union
         let searchTextField = app.textFields["Find a Station"]
@@ -82,32 +82,10 @@ class denverrailUITests: XCTestCase {
     
     func testNowButton () {
         //Get time test is being run
-        let now:NSDate = NSDate()
-        let calendar = Calendar.init(identifier: Calendar.Identifier.gregorian)
-        calendar.timeZone = TimeZone.init(identifier: "MST")
-
-        let comp = calendar.dateComponents([.hour, .minute], from: now)
-        let hour = comp.hour
-        let minute = comp.minute
-        
-        var hour = nowComponents.hour
-        let isPM : Bool
-        if hour! > 12 {
-            isPM = true
-            hour -= 12
-        } else if hour == 12 {
-            isPM = true
-        } else {
-            isPM = false
-        }
-        let minute = nowComponents.minute
-        let minuteString : String
-        if minute < 10 {
-            minuteString = "0" + String(minute)
-        } else {
-            minuteString = String(minute)
-        }
-        let AMPMString = isPM ? "PM" : "AM"
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd h:mm a"
+        let constructedTimeString = dateFormatter.string(from: now)
         
         //Start test
         app.buttons["autoButton"].tap()
@@ -122,15 +100,13 @@ class denverrailUITests: XCTestCase {
         app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "12")
         app.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "59")
 
-        
         //Tap NOW, dismiss and then make sure the current times show up
         app.buttons["Now"].tap()
         app.buttons["Done"].tap()
         
-        let constructedTimeString = String(hour) + ":" + minuteString + " " + AMPMString
         let label = app.staticTexts[constructedTimeString]
         let exists = NSPredicate(format: "exists == true")
-        expectationForPredicate(exists, evaluatedWithObject: label, handler: nil)
+        expectation(for:exists, evaluatedWith: label, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
     }
 }

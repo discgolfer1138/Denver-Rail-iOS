@@ -966,18 +966,17 @@
 	return nil;
 } 
 
-// Keep in portrait 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+// Keep portrait orientation
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 // Remove view 
-- (void)viewDidUnload {
+- (void)didReceiveMemoryWarning {
     [self setWhiteBackground:nil];
     [self setBottomCapImageView:nil];
     [self setButtonDivider:nil];
     [self setShadowAboveButtons:nil];
-    [super viewDidUnload];
 }
 
 @end

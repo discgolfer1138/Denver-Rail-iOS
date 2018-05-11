@@ -60,9 +60,11 @@ static LocationManager *sharedSingleton;
 }
 
 // Updates the location 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
    
-    self.location = newLocation;
+    self.location = locations[0];
+    CLLocation * newLocation = [locations lastObject];
        
     // Update closest station
     int i = 0;
