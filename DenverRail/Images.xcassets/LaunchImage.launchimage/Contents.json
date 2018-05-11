@@ -46,7 +46,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage-RetinaHD5.5-1242x2208-1.png",
+      "filename" : "LaunchImage-iPhonePortrait-iOS5,6@2x-640x960-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -55,7 +55,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "LaunchImage-RetinaHD5.5-1242x2208-2.png",
+      "filename" : "LaunchImage-iPhonePortrait-iOS5,6-Retina4-640x1136-1.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
