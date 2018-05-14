@@ -20,6 +20,7 @@
 		27F49DB31742A62E0064BFA0 /* w-line-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAF1742A62E0064BFA0 /* w-line-circle@2x.png */; };
 		27F49DB41742A62E0064BFA0 /* w-line-square.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DB01742A62E0064BFA0 /* w-line-square.png */; };
 		27F49DB51742A62E0064BFA0 /* w-line-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DB11742A62E0064BFA0 /* w-line-square@2x.png */; };
+		35BC21074E85BB8FC0046769 /* libPods-denverrail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBDAC11DCDB6D5721F134BA /* libPods-denverrail.a */; };
 		371FE59C175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE598175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png */; };
 		371FE59D175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE599175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png */; };
 		371FE59E175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE59A175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png */; };
@@ -134,6 +135,7 @@
 		39EC491015228633009D6649 /* list-background-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39EC490C15228633009D6649 /* list-background-bottom@2x.png */; };
 		39EC491115228633009D6649 /* list-background-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39EC490D15228633009D6649 /* list-background-top@2x.png */; };
 		39F5807E151BDE3F006661CA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F5807D151BDE3F006661CA /* libz.dylib */; };
+		48C6CB94AF825ACD4FB847EB /* libPods-denverrailUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672723B200A41ADA7389756 /* libPods-denverrailUITests.a */; };
 		4C7775BD19E3023B004FECD4 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */; };
 		4C7775BE19E3023B004FECD4 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */; };
 		7E0CC8F620A3F9FB00345BBA /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0CC8F520A3F9FB00345BBA /* Icon-1024.png */; };
@@ -195,6 +197,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07DE2E631AECE96F0B96401C /* Pods-denverrail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-denverrail.debug.xcconfig"; path = "Pods/Target Support Files/Pods-denverrail/Pods-denverrail.debug.xcconfig"; sourceTree = "<group>"; };
 		192D68A620A4B52C00EDF141 /* LaunchImage-iPhoneXPortrait-1125x2436.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-iPhoneXPortrait-1125x2436.png"; sourceTree = SOURCE_ROOT; };
 		192D68A720A4B52C00EDF141 /* LaunchImage-RetinaHD4.7-750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-RetinaHD4.7-750x1334.png"; sourceTree = SOURCE_ROOT; };
 		192D68A820A4B52D00EDF141 /* LaunchImage-RetinaHD5.5-1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-RetinaHD5.5-1242x2208.png"; sourceTree = SOURCE_ROOT; };
@@ -341,8 +344,10 @@
 		39EC490D15228633009D6649 /* list-background-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-top@2x.png"; sourceTree = "<group>"; };
 		39EFA083153535DE00A2A9E0 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		39F5807D151BDE3F006661CA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3B10F2897AE2F31DBFFD8D30 /* Pods-denverrailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-denverrailUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-denverrailUITests/Pods-denverrailUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = SOURCE_ROOT; };
 		4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = SOURCE_ROOT; };
+		71CE07A3E4590EF54516CD22 /* Pods-denverrailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-denverrailUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-denverrailUITests/Pods-denverrailUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E0CC8F520A3F9FB00345BBA /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		7E0CC8F920A3FB1200345BBA /* Icon-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-20@2x.png"; sourceTree = "<group>"; };
 		7E0CC8FA20A3FB1200345BBA /* Icon-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-20@3x.png"; sourceTree = "<group>"; };
@@ -375,6 +380,7 @@
 		8CA8C89B1CB31F7700D88CFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8CA8C89C1CB31F7700D88CFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		8CD8AA961CEA6C8100972334 /* schedules.sqlite.bak */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite.bak; sourceTree = "<group>"; };
+		9672723B200A41ADA7389756 /* libPods-denverrailUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-denverrailUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9672835516B986DD000BECE6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		9672835616B986DD000BECE6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		9672835716B986DD000BECE6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
@@ -384,6 +390,8 @@
 		96CD2BEA16C05F5F00CC0DC3 /* list-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background.png"; sourceTree = "<group>"; };
 		96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background@2x.png"; sourceTree = "<group>"; };
 		96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-568h@2x.png"; sourceTree = "<group>"; };
+		C3F141735D97D4CD683B6D82 /* Pods-denverrail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-denverrail.release.xcconfig"; path = "Pods/Target Support Files/Pods-denverrail/Pods-denverrail.release.xcconfig"; sourceTree = "<group>"; };
+		CBBDAC11DCDB6D5721F134BA /* libPods-denverrail.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-denverrail.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -410,6 +418,7 @@
 				3912A93014E5DB9A00AEF260 /* CoreLocation.framework in Frameworks */,
 				39E7F0E114DE05F0007C8617 /* UIKit.framework in Frameworks */,
 				39E7F0E314DE05F0007C8617 /* Foundation.framework in Frameworks */,
+				35BC21074E85BB8FC0046769 /* libPods-denverrail.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48C6CB94AF825ACD4FB847EB /* libPods-denverrailUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +610,7 @@
 				8CA25C191CFF38340092DBCB /* denverrailUITests */,
 				39E7F0DF14DE05F0007C8617 /* Frameworks */,
 				39E7F0DD14DE05F0007C8617 /* Products */,
+				43E875C92050D1D67B3B20A7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -624,6 +635,8 @@
 				39E7F0E014DE05F0007C8617 /* UIKit.framework */,
 				39E7F0E214DE05F0007C8617 /* Foundation.framework */,
 				39E7F0E414DE05F0007C8617 /* CoreGraphics.framework */,
+				CBBDAC11DCDB6D5721F134BA /* libPods-denverrail.a */,
+				9672723B200A41ADA7389756 /* libPods-denverrailUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -680,6 +693,17 @@
 				39D99D2B152BC56200F3C2AE /* SearchViewController.xib */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		43E875C92050D1D67B3B20A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07DE2E631AECE96F0B96401C /* Pods-denverrail.debug.xcconfig */,
+				C3F141735D97D4CD683B6D82 /* Pods-denverrail.release.xcconfig */,
+				71CE07A3E4590EF54516CD22 /* Pods-denverrailUITests.debug.xcconfig */,
+				3B10F2897AE2F31DBFFD8D30 /* Pods-denverrailUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		4C7775BA19E301FE004FECD4 /* Old Icons & Launch Images */ = {
@@ -755,6 +779,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39E7F0FA14DE05F0007C8617 /* Build configuration list for PBXNativeTarget "denverrail" */;
 			buildPhases = (
+				F3A11479CACEDDEFC00AE688 /* [CP] Check Pods Manifest.lock */,
 				39E7F0D814DE05F0007C8617 /* Sources */,
 				39E7F0D914DE05F0007C8617 /* Frameworks */,
 				39E7F0DA14DE05F0007C8617 /* Resources */,
@@ -772,6 +797,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CA25C211CFF38340092DBCB /* Build configuration list for PBXNativeTarget "denverrailUITests" */;
 			buildPhases = (
+				018479AC4224DD062911541E /* [CP] Check Pods Manifest.lock */,
 				8CA25C141CFF38340092DBCB /* Sources */,
 				8CA25C151CFF38340092DBCB /* Frameworks */,
 				8CA25C161CFF38340092DBCB /* Resources */,
@@ -983,6 +1009,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		018479AC4224DD062911541E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-denverrailUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3A11479CACEDDEFC00AE688 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-denverrail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		39E7F0D814DE05F0007C8617 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1143,6 +1208,7 @@
 		};
 		39E7F0FB14DE05F0007C8617 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07DE2E631AECE96F0B96401C /* Pods-denverrail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1170,6 +1236,7 @@
 		};
 		39E7F0FC14DE05F0007C8617 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3F141735D97D4CD683B6D82 /* Pods-denverrail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1197,6 +1264,7 @@
 		};
 		8CA25C1F1CFF38340092DBCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71CE07A3E4590EF54516CD22 /* Pods-denverrailUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1227,6 +1295,7 @@
 		};
 		8CA25C201CFF38340092DBCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B10F2897AE2F31DBFFD8D30 /* Pods-denverrailUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
