@@ -7,7 +7,6 @@
 
 #import "AppDelegate.h"
 #import "TimetableSearchUtility.h"
-#import "WhistleBlowerController.h"
 #import <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -16,11 +15,6 @@ static NSString *const kPreferencesSetKey = @"prefsSet";
 static NSString *const kPreferencesSetValue = @"prefsSet";
 
 @interface AppDelegate()
-
-/**
- WhistleBlower easter egg
- */
-@property (strong, nonatomic) WhistleBlowerController *whistleBlower;
 
 @end
 
@@ -184,9 +178,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 // Initializes the audio for the first time
 - (void)initializeAudio {
     [AVAudioSession sharedInstance];
-    self.whistleBlower = [[WhistleBlowerController alloc] init];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    self.whistleBlower.isOn = NO;
 }
 
 - (void)initializeAudioPreferences {

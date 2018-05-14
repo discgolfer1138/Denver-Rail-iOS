@@ -170,7 +170,6 @@
 		96CD2BEC16C05F5F00CC0DC3 /* list-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEA16C05F5F00CC0DC3 /* list-background.png */; };
 		96CD2BED16C05F5F00CC0DC3 /* list-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */; };
 		96CD2BEF16C0613800CC0DC3 /* list-background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */; };
-		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
 		EADBE1C515368EDB00D88451 /* loud_long_whistle.caf in Resources */ = {isa = PBXBuildFile; fileRef = EADBE1C115368EDB00D88451 /* loud_long_whistle.caf */; };
@@ -377,8 +376,6 @@
 		96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-568h@2x.png"; sourceTree = "<group>"; };
 		C3F141735D97D4CD683B6D82 /* Pods-denverrail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-denverrail.release.xcconfig"; path = "Pods/Target Support Files/Pods-denverrail/Pods-denverrail.release.xcconfig"; sourceTree = "<group>"; };
 		CBBDAC11DCDB6D5721F134BA /* libPods-denverrail.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-denverrail.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
-		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EA544B22153B840500362759 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EADBE1C115368EDB00D88451 /* loud_long_whistle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loud_long_whistle.caf; sourceTree = "<group>"; };
@@ -618,7 +615,6 @@
 				39E7F0FD14DE4078007C8617 /* View Controllers */,
 				39E6388D14E1C673006FC1D6 /* Model */,
 				39E6389214E1D2F8006FC1D6 /* Utility */,
-				EA0915D41533E290000898B9 /* Easter Eggs */,
 				39E7F0E714DE05F0007C8617 /* Supporting Files */,
 			);
 			path = DenverRail;
@@ -717,15 +713,6 @@
 				8CA25C1C1CFF38340092DBCB /* Info.plist */,
 			);
 			path = denverrailUITests;
-			sourceTree = "<group>";
-		};
-		EA0915D41533E290000898B9 /* Easter Eggs */ = {
-			isa = PBXGroup;
-			children = (
-				EA0915D61533E309000898B9 /* WhistleBlowerController.h */,
-				EA0915D71533E309000898B9 /* WhistleBlowerController.m */,
-			);
-			name = "Easter Eggs";
 			sourceTree = "<group>";
 		};
 		EADBE1CA15368EDF00D88451 /* Audio */ = {
@@ -1031,7 +1018,6 @@
 				3912A92214E5CBE900AEF260 /* LocationManager.m in Sources */,
 				3912A93414E5E06400AEF260 /* ScheduleViewController.m in Sources */,
 				39D99D2C152BC56200F3C2AE /* SearchViewController.m in Sources */,
-				EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */,
 				3958FA071535FB42002496B7 /* Common.m in Sources */,
 				8CA8C89D1CB31F7700D88CFC /* Constants.m in Sources */,
 			);
