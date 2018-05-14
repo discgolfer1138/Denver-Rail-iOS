@@ -6,7 +6,7 @@
 \margl1440\margr1440\vieww24020\viewh14600\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 updated May 16, 2016\
+\f0\fs24 \cf0 updated May 14, 2018\
 \
 1. download and unzip the google transit zip file in any directory.\
 http://www.rtd-denver.com/GoogleFeeder/ \
@@ -58,20 +58,42 @@ STOPS (takes less than a second):\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 3.a Create the final table with stop names (10-15 seconds or so, 32.52 seconds on 3.3GHz i5 w/5600 rpm drive):
+\f0 \cf0 3.a Create the final table with stop names (10-15 seconds or so, 32.52 seconds on 3.3GHz i5 w/5600 rpm drive):\
+
 \f1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 create table schedule as select distinct schedulenonames.service_id, schedulenonames.route_id, schedulenonames.direction_id, stops.stop_name, schedulenonames.departure_time, schedulenonames.stop_id from schedulenonames, stops where schedulenonames.stop_id = stops.stop_id;\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f0 \cf0 4. You'll now need to do some 'massaging' of the data. Set union station name to the same (nb and sb have different names) using update table command. You'll want to check all of the stop_names to make sure there aren't unnecessary doubles, on the A-line almost all of the station names have doubles for 'Track 1' and 'Track 2'. We don't have handling for tracks in the app, just station names so you'll need to go through and change 38th & Blake Station Track 1 to 38th & Blake Station. As of May 2016, there should be 53 total Station Names. If you're going through this adding another line or two, count the stations of the line you're adding and add that to the 53 existing. ADDITIONALLY, you'll need to add these station names to the 
+\f0 \cf0 4. Check stop names - \
+These tend to be a moving target (results from the following query must match the array in the app delegate, initStations method)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf0 select distinct stop_name from schedule order by stop_name
+\f0 \
+\
+You'll have to massage several names to prevent duplicates. Almost all A-line station names have separate station entries for 'Track 1' and 'Track 2'. We don't have handling for tracks in the app, so for now just remove the track designation. Note also that there are separate entries for the commuter line and lrt line platforms at Union Station.\
+\
+query to view all the station names:\
+select distinct stop_name from schedule order by stop_name;\
+\
+As of May 2018, there should be 61 total Station Names. If you're going through this adding another line or two, count the stations of the line you're adding and add that to the 61 existing. ADDITIONALLY, you'll need to add these station names to the 
 \f2\fs22 \cf2 \CocoaLigature0 initStations
 \f0\fs24 \cf0 \CocoaLigature1  method in AppDelegate.m.\
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+here are the queries to resolve the discrepancies thus far: (please add more to this doc, if found)\
+\
 
-\f1 \cf0 	update schedule set stop_name = 'Union Station' where stop_name like '%union%'
+\f1 update schedule set stop_name = '38th & Blake Station' where stop_name like '38th & Blake Station%';\
+update schedule set stop_name = '40th & Colorado Station' where stop_name like '40th & Colorado Station%';\
+update schedule set stop_name = '40th Ave & Airport Blvd Station' where stop_name like '40th Ave & Airport Blvd%';\
+update schedule set stop_name = '61st & Pena Station' where stop_name like '61st & Pena Station%';\
+update schedule set stop_name = 'Central Park Station' where stop_name like 'Central Park Station%';\
+update schedule set stop_name = 'Peoria Station' where stop_name like 'Peoria Station%';\
+update schedule set stop_name = 'Theatre District/Convention Ctr Station' where stop_name like 'theatre district%';\
+update schedule set stop_name = 'Union Station' where stop_name like 'union%';\
+update schedule set stop_name = 'Westminster Station' where stop_name like 'westminster station%';
 \f0 \
 \
 5. Find & replace ":" with nothing in departuretime field so it can be compared\
@@ -79,15 +101,9 @@ STOPS (takes less than a second):\
 
 \f3 \cf0 update schedule set departure_time = replace(departure_time, ':', '');
 \f1 \
-\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0 \cf0 5b. Check that the stop names match the app - they tend to be a moving target (compare results below with the array in the app delegate, initStations method)\
-	
-\f1 select distinct stop_name from schedule order by stop_name
-\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+
+\f0 \cf0 \
 6a. Export the schedule table to csv (using MySQL Workbench, run the following query and then select Export:)\
 	
 \f1 select * from schedule\
@@ -105,7 +121,7 @@ STOPS (takes less than a second):\
 \cf0 \
 \
 \
-7. create an index on the sqlite table tailored to our query: ** If create index wizard does not work run the command threw execute sql **\
+7. create an index on the sqlite table tailored to our query: ** If create index wizard does not work run the command through execute sql **\
 \
 create index main_query_idx on schedule (departure_time, route_id)\
 \
