@@ -40,11 +40,6 @@
 		3912A93014E5DB9A00AEF260 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3912A92F14E5DB9A00AEF260 /* CoreLocation.framework */; };
 		3912A93414E5E06400AEF260 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3912A93214E5E06400AEF260 /* ScheduleViewController.m */; };
 		3912A93514E5E06400AEF260 /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3912A93314E5E06400AEF260 /* ScheduleViewController.xib */; };
-		39226D8614E11B3B00ADF82A /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D7D14E11B3B00ADF82A /* FMDatabase.m */; };
-		39226D8714E11B3B00ADF82A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D7F14E11B3B00ADF82A /* FMDatabaseAdditions.m */; };
-		39226D8814E11B3B00ADF82A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8114E11B3B00ADF82A /* FMDatabasePool.m */; };
-		39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */; };
-		39226D8A14E11B3B00ADF82A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8514E11B3B00ADF82A /* FMResultSet.m */; };
 		393F638B19E2F7BA00F5C250 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */; };
 		393F638D19E2FC0E00F5C250 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 393F638C19E2FC0E00F5C250 /* Icon-60.png */; };
 		3958FA071535FB42002496B7 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EFA083153535DE00A2A9E0 /* Common.m */; };
@@ -232,16 +227,6 @@
 		3912A93114E5E06400AEF260 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		3912A93214E5E06400AEF260 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		3912A93314E5E06400AEF260 /* ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
-		39226D7C14E11B3B00ADF82A /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		39226D7D14E11B3B00ADF82A /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		39226D7E14E11B3B00ADF82A /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		39226D7F14E11B3B00ADF82A /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		39226D8014E11B3B00ADF82A /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		39226D8114E11B3B00ADF82A /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		39226D8214E11B3B00ADF82A /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		39226D8414E11B3B00ADF82A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		39226D8514E11B3B00ADF82A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "../Icon-60@2x.png"; sourceTree = "<group>"; };
 		393F638C19E2FC0E00F5C250 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "../Icon-60.png"; sourceTree = "<group>"; };
 		395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -433,23 +418,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		395DFF6D14E066BA004E7F58 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				39226D7C14E11B3B00ADF82A /* FMDatabase.h */,
-				39226D7D14E11B3B00ADF82A /* FMDatabase.m */,
-				39226D7E14E11B3B00ADF82A /* FMDatabaseAdditions.h */,
-				39226D7F14E11B3B00ADF82A /* FMDatabaseAdditions.m */,
-				39226D8014E11B3B00ADF82A /* FMDatabasePool.h */,
-				39226D8114E11B3B00ADF82A /* FMDatabasePool.m */,
-				39226D8214E11B3B00ADF82A /* FMDatabaseQueue.h */,
-				39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */,
-				39226D8414E11B3B00ADF82A /* FMResultSet.h */,
-				39226D8514E11B3B00ADF82A /* FMResultSet.m */,
-			);
-			name = FMDB;
-			sourceTree = "<group>";
-		};
 		39E6388D14E1C673006FC1D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +619,6 @@
 				39E6388D14E1C673006FC1D6 /* Model */,
 				39E6389214E1D2F8006FC1D6 /* Utility */,
 				EA0915D41533E290000898B9 /* Easter Eggs */,
-				395DFF6D14E066BA004E7F58 /* FMDB */,
 				39E7F0E714DE05F0007C8617 /* Supporting Files */,
 			);
 			path = DenverRail;
@@ -1058,12 +1025,7 @@
 				39E7F0F414DE05F0007C8617 /* BaseViewController.m in Sources */,
 				39E7F10314DE45D9007C8617 /* TimetableSearchUtility.m in Sources */,
 				39E7F10614DE4646007C8617 /* Station.m in Sources */,
-				39226D8614E11B3B00ADF82A /* FMDatabase.m in Sources */,
 				8C366B951CA9DC1F000E73CD /* LocalizedStrings.m in Sources */,
-				39226D8714E11B3B00ADF82A /* FMDatabaseAdditions.m in Sources */,
-				39226D8814E11B3B00ADF82A /* FMDatabasePool.m in Sources */,
-				39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */,
-				39226D8A14E11B3B00ADF82A /* FMResultSet.m in Sources */,
 				39E6388B14E1C66A006FC1D6 /* ScheduledStop.m in Sources */,
 				39E6389514E1D306006FC1D6 /* NSString+Common.m in Sources */,
 				3912A92214E5CBE900AEF260 /* LocationManager.m in Sources */,
