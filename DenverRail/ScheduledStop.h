@@ -15,8 +15,8 @@ typedef NS_ENUM(NSUInteger, RailLine) {
     kDLine,
     kELine,
     kFLine,
-    kGLine,
     kHLine,
+    kLLine,
     kRLine,
     kWLine,
 };

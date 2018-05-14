@@ -202,11 +202,11 @@ NSString *const MountainTimeZone = @"US/Mountain";
             case kFLine:
                 line = @"f";
                 break;
-            case kGLine:
-                line = @"g";
-                break;
             case kHLine:
                 line = @"h";
+                break;
+            case kLLine:
+                line = @"l";
                 break;
             case kRLine:
                 line = @"r";

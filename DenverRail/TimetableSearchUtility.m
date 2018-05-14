@@ -56,18 +56,20 @@
       return nil; // If location is not initialized return empty set
     }
     
-    FMResultSet *rs = [db executeQueryWithFormat:
-                       @"SELECT departure_time, route_id, stop_id "
-                       "FROM schedule WHERE stop_name = %@ " //station.columnName
+    NSString *query = [NSString stringWithFormat:@"SELECT DISTINCT departure_time, route_id, stop_id "
+                       "FROM schedule WHERE stop_name = \"%@\" " //station.columnName
                        "AND direction_id = %i "//isNorth
                        "AND departure_time > %i "//timeInt
-                       "AND service_id = %@ "//schedule code
-                       "ORDER BY departure_time LIMIT %@", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode, limit];
+                       "AND service_id like \"%@\" "//schedule code
+                       "ORDER BY departure_time LIMIT %@",
+                       station.columnName, isNorth ? 0 : 1, timeInt, [NSString stringWithFormat:@"%@%%", scheduleCode], limit];
+    
+    FMResultSet *rs = [db executeQuery: query];
     
     NSMutableArray *stops = [NSMutableArray new];
     while ([rs next]) {
         int timeInt = [rs intForColumn:@"departure_time"];
-        NSString *routeString = [rs stringForColumn:@"route_id"]; // c d e f h w
+        NSString *routeString = [rs stringForColumn:@"route_id"]; // a b c d e f h l r w
         int stopId = [rs intForColumn:@"stop_id"];
         BOOL isHighlighted = NO;
       
@@ -84,10 +86,10 @@
             line = kELine;
         } else if ([routeString contains:@"F"]) {
             line = kFLine;
-        } else if ([routeString contains:@"G"]) {
-            line = kGLine;
         } else if ([routeString contains:@"H"]) {
             line = kHLine;
+        } else if ([routeString contains:@"L"]) {
+            line = kLLine;
         } else if ([routeString contains:@"R"]) {
             line = kRLine;
         } else if ([routeString contains:@"W"]) {
