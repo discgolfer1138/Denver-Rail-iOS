@@ -36,24 +36,23 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self initializeAudioPreferences];
 }
 
-/**
- Initializes the stations with their image name, database name, coordinates, and
- booleans if they are one direction only and if they are east and west instead of north and south
- */
 - (void)initStations {
 	self.stations = [NSMutableArray new];
     
+    // Read station data from plist file
     NSString *path = [[NSBundle mainBundle] pathForResource: @"Stations" ofType: @"plist"];
     NSMutableArray *stations = [[NSMutableArray alloc] initWithContentsOfFile:path];
     
     for(NSDictionary *station in stations){
+        // Initializes the station with its name, coordinates, and directional booleans
         [self.stations addObject:[[Station alloc]
                                   initWithColumnName: [station objectForKey: @"name"]
                                   latitude: [[station objectForKey: @"latitude"] doubleValue]
                                   longitude: [[station objectForKey: @"longitude"] doubleValue]
-                                  southOnly: [station objectForKey: @"southOnly"]
-                                  northOnly: [station objectForKey: @"northOnly"]
-                                  eastWest: [station objectForKey: @"eastWest"]]];
+                                  southOnly: [[station objectForKey: @"southOnly"] boolValue]
+                                  northOnly: [[station objectForKey: @"northOnly"] boolValue]
+                                  eastWest: [[station objectForKey: @"eastWest"] boolValue]
+        ]];
     }
 }
 
