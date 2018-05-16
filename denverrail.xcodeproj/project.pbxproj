@@ -148,6 +148,7 @@
 		7E66BDBA20A01EF70062FCA7 /* g-line-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E66BDAE20A01EF70062FCA7 /* g-line-square@2x.png */; };
 		7E66BDBB20A01EF70062FCA7 /* r-line-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E66BDAF20A01EF70062FCA7 /* r-line-circle@2x.png */; };
 		7E66BDBC20A01EF70062FCA7 /* g-line-square.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E66BDB020A01EF70062FCA7 /* g-line-square.png */; };
+		7E8226FC20AC04E100DB70D5 /* Stations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E8226FB20AC04E100DB70D5 /* Stations.plist */; };
 		7E8278AB20A972DB000FB6A4 /* map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7E8278AA20A972DB000FB6A4 /* map.pdf */; };
 		7E8278B420A97540000FB6A4 /* l-line-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E8278B020A9753F000FB6A4 /* l-line-circle@2x.png */; };
 		7E8278B520A97540000FB6A4 /* l-line-square.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E8278B120A9753F000FB6A4 /* l-line-square.png */; };
@@ -343,6 +344,7 @@
 		7E66BDAE20A01EF70062FCA7 /* g-line-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "g-line-square@2x.png"; path = "../../Assets/Images/Line Icons/g-line-square@2x.png"; sourceTree = "<group>"; };
 		7E66BDAF20A01EF70062FCA7 /* r-line-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "r-line-circle@2x.png"; path = "../../Assets/Images/Line Icons/r-line-circle@2x.png"; sourceTree = "<group>"; };
 		7E66BDB020A01EF70062FCA7 /* g-line-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "g-line-square.png"; path = "../../Assets/Images/Line Icons/g-line-square.png"; sourceTree = "<group>"; };
+		7E8226FB20AC04E100DB70D5 /* Stations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Stations.plist; sourceTree = "<group>"; };
 		7E8278AA20A972DB000FB6A4 /* map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = map.pdf; path = Assets/map.pdf; sourceTree = "<group>"; };
 		7E8278B020A9753F000FB6A4 /* l-line-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "l-line-circle@2x.png"; path = "DenverRail/Assets/Images/Line Icons/l-line-circle@2x.png"; sourceTree = SOURCE_ROOT; };
 		7E8278B120A9753F000FB6A4 /* l-line-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "l-line-square.png"; path = "DenverRail/Assets/Images/Line Icons/l-line-square.png"; sourceTree = SOURCE_ROOT; };
@@ -509,6 +511,7 @@
 				39EFA083153535DE00A2A9E0 /* Common.m */,
 				39E7F0EE14DE05F0007C8617 /* DenverRail-Prefix.pch */,
 				EA544B22153B840500362759 /* Settings.bundle */,
+				7E8226FB20AC04E100DB70D5 /* Stations.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				96CD2BE116C03ECE00CC0DC3 /* middle-568h@2x.png in Resources */,
 				96CD2BEC16C05F5F00CC0DC3 /* list-background.png in Resources */,
 				96CD2BED16C05F5F00CC0DC3 /* list-background@2x.png in Resources */,
+				7E8226FC20AC04E100DB70D5 /* Stations.plist in Resources */,
 				96CD2BEF16C0613800CC0DC3 /* list-background-568h@2x.png in Resources */,
 				7E66BDB520A01EF70062FCA7 /* b-line-circle@2x.png in Resources */,
 				27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */,

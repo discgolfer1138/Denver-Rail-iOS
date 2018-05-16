@@ -56,10 +56,10 @@ class denverrailUITests: XCTestCase {
         //Tap to open Search
         app.buttons["Station Search Button"].tap()
         
-        //Check number of rows is 61 for all 64 stations
+        //Check that all 62 stations appear in the list
         let tablesQuery = app.tables
         let count = tablesQuery.cells.count
-        XCTAssert(count == 61)
+        XCTAssert(count == 62)
         
         //Search for Union
         let searchTextField = app.textFields["Find a Station"]
