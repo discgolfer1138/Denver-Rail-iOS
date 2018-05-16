@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mfC-Sg-xCn">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="mfC-Sg-xCn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Base View Controller-->
@@ -10,28 +14,28 @@
             <objects>
                 <viewController id="mfC-Sg-xCn" customClass="BaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGH-me-jVQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="T0B-ng-j0W">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <view contentMode="scaleToFill" misplaced="YES" id="T0B-ng-j0W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <webView contentMode="scaleToFill" scalesPageToFit="YES" id="KZJ-5p-oo6">
                                         <rect key="frame" x="0.0" y="44" width="320" height="437"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <dataDetectorType key="dataDetectorTypes"/>
                                         <connections>
                                             <outlet property="delegate" destination="mfC-Sg-xCn" id="CNo-2T-1xL"/>
                                         </connections>
                                     </webView>
-                                    <view contentMode="scaleToFill" id="JbT-s9-p1f">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" id="JbT-s9-p1f">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="511"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="white-background.png" id="KWk-7c-hK3">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="white-background.png" id="KWk-7c-hK3">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="list-background.png" id="Hgd-X2-gv4">
@@ -50,7 +54,7 @@
                                                         <rect key="frame" x="37" y="69" width="103" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yUo-2M-IcW">
@@ -59,11 +63,11 @@
                                                         <accessibility key="accessibilityConfiguration" identifier="Open Time Picker" label="timeSelectTapped"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <state key="normal" image="timebar.png">
-                                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <state key="highlighted">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="timeSelectTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="glm-Fa-OE5"/>
@@ -73,18 +77,18 @@
                                                         <rect key="frame" x="21" y="12" width="100" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                        <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <size key="shadowOffset" width="0.0" height="1"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3:30 PM" lineBreakMode="tailTruncation" minimumFontSize="10" id="O5r-3R-Vi6">
                                                         <rect key="frame" x="200" y="12" width="100" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                        <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <size key="shadowOffset" width="0.0" height="1"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="50W-1e-ygC">
@@ -92,7 +96,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <accessibility key="accessibilityConfiguration" label="distanceLabel"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="compass-arrow.png" id="UAr-5u-MzY">
@@ -101,7 +105,7 @@
                                                         <accessibility key="accessibilityConfiguration" label="arrow"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="topSection"/>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="middle.png" id="3Yc-q7-TJi">
@@ -111,7 +115,7 @@
                                             <view contentMode="scaleToFill" id="8ZA-a2-mnc">
                                                 <rect key="frame" x="151" y="358" width="19" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" label="buttonDivider"/>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottom-cap.png" id="VTw-b2-r64">
@@ -125,12 +129,12 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
                                                 <state key="normal" title="Northbound" backgroundImage="bottom-bar-left-button.png">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="bottom-bar-left-button-selected.png"/>
                                                 <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="northboundTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="a09-aM-DdQ"/>
@@ -142,12 +146,12 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
                                                 <state key="normal" title="Southbound" backgroundImage="bottom-bar-right-button.png">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="bottom-bar-right-button-selected.png"/>
                                                 <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="southboundTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="rVs-St-j7y"/>
@@ -158,63 +162,63 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="Top Level Slider"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="lightboard-background.png" id="e9H-Mc-F8M">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320.32215258385207" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MpM-Oa-yaZ">
-                                        <rect key="frame" x="6" y="6" width="51" height="31"/>
+                                        <rect key="frame" x="6" y="6" width="50.874694822141215" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration" label="mapButton"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="map-button.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="selected" image="map-button-selected.png"/>
                                         <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="mapTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="sLm-JI-tLa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2hF-Fn-Yhh">
-                                        <rect key="frame" x="248" y="6" width="65" height="31"/>
+                                        <rect key="frame" x="248" y="6" width="65.006554494958209" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration" hint="autoTapped" label="autoButton"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="auto-button.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="selected" image="auto-off-button.png"/>
                                         <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="autoTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="zg3-jh-DYl"/>
                                         </connections>
                                     </button>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="i6m-ld-nv8">
-                                        <rect key="frame" x="60" y="0.0" width="183" height="44"/>
+                                        <rect key="frame" x="60" y="0.0" width="183.24311375752714" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1oy-dr-E74">
-                                        <rect key="frame" x="61" y="3" width="182" height="44"/>
+                                        <rect key="frame" x="61" y="3" width="181.82992779024545" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Station Search Button"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="searchTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="nQ1-9C-aK6"/>
@@ -260,7 +264,7 @@
                                             <pickerView contentMode="scaleToFill" id="n7b-PM-bLq">
                                                 <rect key="frame" x="0.0" y="44" width="320" height="216"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Non Auto Time Picker" label="datePIcker"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="mfC-Sg-xCn" id="6zC-Wd-SX2"/>
@@ -268,13 +272,13 @@
                                                 </connections>
                                             </pickerView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -304,31 +308,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-aa-gZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="104"/>
+            <point key="canvasLocation" x="377.5" y="103.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="auto-button.png" width="65" height="31"/>
         <image name="auto-off-button.png" width="65" height="31"/>
-        <image name="bottom-bar-left-button-selected.png" width="140" height="38"/>
-        <image name="bottom-bar-left-button.png" width="140" height="38"/>
-        <image name="bottom-bar-right-button-selected.png" width="139" height="38"/>
-        <image name="bottom-bar-right-button.png" width="139" height="38"/>
+        <image name="bottom-bar-left-button-selected.png" width="140" height="54"/>
+        <image name="bottom-bar-left-button.png" width="140" height="54"/>
+        <image name="bottom-bar-right-button-selected.png" width="139" height="54"/>
+        <image name="bottom-bar-right-button.png" width="139" height="54"/>
         <image name="bottom-cap.png" width="302" height="24"/>
         <image name="compass-arrow.png" width="16" height="20"/>
         <image name="lightboard-background.png" width="320" height="44"/>
-        <image name="list-background.png" width="280" height="375"/>
+        <image name="list-background.png" width="280" height="463"/>
         <image name="map-button-selected.png" width="51" height="31"/>
         <image name="map-button.png" width="51" height="31"/>
-        <image name="middle.png" width="302" height="331"/>
-        <image name="shadow.png" width="280" height="6"/>
+        <image name="middle.png" width="302" height="419"/>
+        <image name="shadow.png" width="140" height="3"/>
         <image name="timebar.png" width="320" height="46"/>
         <image name="top-cap.png" width="302" height="43"/>
-        <image name="white-background.png" width="320" height="416"/>
+        <image name="white-background.png" width="320" height="548"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>
