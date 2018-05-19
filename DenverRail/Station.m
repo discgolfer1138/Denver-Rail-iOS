@@ -9,7 +9,9 @@
 
 @implementation Station
 
-- (id)initWithColumnName:(NSString *)columnName
+- (instancetype)init { @throw nil; }
+
+- (instancetype)initWithColumnName:(NSString *)columnName
                 latitude:(double)latitude
                 longitude:(double)longitude
                southOnly:(BOOL)southOnly
@@ -26,7 +28,7 @@
         _location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     }
     
-	return self;
+    return self;
 }
 
 @end

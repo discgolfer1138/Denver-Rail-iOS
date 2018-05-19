@@ -17,8 +17,8 @@
 
 + (LocationManager *)instance;
 
-- (float)distanceInMilesToClosestStation;
-- (int)bearingInDegreesToClosestStation;
+@property (NS_NONATOMIC_IOSONLY, readonly) float distanceInMilesToClosestStation;
+@property (NS_NONATOMIC_IOSONLY, readonly) int bearingInDegreesToClosestStation;
 - (float)distanceInMilesToStation:(Station *)_station;
 - (int)bearingInDegreesToStation:(Station *)_station;
 

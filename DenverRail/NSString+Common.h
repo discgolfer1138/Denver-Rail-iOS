@@ -8,10 +8,10 @@
 
 @interface NSString (Common)
 
--(BOOL)isBlank;
+@property (NS_NONATOMIC_IOSONLY, getter=isBlank, readonly) BOOL blank;
 -(BOOL)contains:(NSString *)string;
 -(NSArray *)splitOnChar:(char)ch;
 -(NSString *)substringFrom:(NSInteger)from to:(NSInteger)to;
--(NSString *)stringByStrippingWhitespace;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByStrippingWhitespace;
 
 @end

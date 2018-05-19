@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *ad = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.allStations = ad.stations;
     self.matchingStations = [NSMutableArray new];
     [self.matchingStations addObjectsFromArray:self.allStations];
@@ -57,7 +57,7 @@
 
         // Find all matching stations
         for(Station *currentStation in self.allStations) {
-            if ([[currentStation.columnName lowercaseString] contains:[self.searchBoxTextField.text lowercaseString]]) {
+            if ([(currentStation.columnName).lowercaseString contains:(self.searchBoxTextField.text).lowercaseString]) {
                     [self.matchingStations addObject:currentStation];
             }
         }
@@ -65,7 +65,7 @@
     
     // Station name Wadsworth - Lakewood is in database as only wadsworth. Last item in both arrays is that station
     if ([self.searchBoxTextField.text contains:@"l"]) {
-        [self.matchingStations addObject:[self.allStations lastObject]];
+        [self.matchingStations addObject:(self.allStations).lastObject];
     }
 
     [self.tableView reloadData];
@@ -81,7 +81,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.searchBoxTextField resignFirstResponder];
     
-    [self.delegate searchStationSelected:[self.matchingStations objectAtIndex:indexPath.row]];
+    [self.delegate searchStationSelected:(self.matchingStations)[indexPath.row]];
 }
 
 // Shows the list of matching stations
@@ -91,7 +91,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    Station *currentStation = [self.matchingStations objectAtIndex:indexPath.row];
+    Station *currentStation = (self.matchingStations)[indexPath.row];
     
     // Replace some of the database names with a proper format 
     cell.textLabel.text = [currentStation.columnName stringByReplacingOccurrencesOfString:@"Station" withString:@""];
@@ -107,7 +107,7 @@
 
 // Returns the number of matching stations 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.matchingStations count];
+    return (self.matchingStations).count;
 }
 
 // Keep portrait orientation
@@ -117,28 +117,28 @@
 
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    NSDictionary* info = aNotification.userInfo;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     // Adjust tableview height for the keyboard
     CGRect tableRect = CGRectMake(0,
                                   CGRectGetMinY(self.tableView.frame),
                                   CGRectGetWidth(self.tableView.frame),
                                   CGRectGetHeight(self.tableView.frame) - kbSize.height);
-    [self.tableView setFrame:tableRect];
+    (self.tableView).frame = tableRect;
     
 }
 
 // Called when the UIKeyboardDidHide notification is sent
 - (void)keyboardWillHide:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    NSDictionary* info = aNotification.userInfo;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     // Adjust tableview height for the keyboard
     CGRect tableRect = CGRectMake(0,
                                   CGRectGetMinY(self.tableView.frame),
                                   CGRectGetWidth(self.tableView.frame),
                                   CGRectGetHeight(self.tableView.frame) + kbSize.height);
-    [self.tableView setFrame:tableRect];
+    (self.tableView).frame = tableRect;
     
 }
 

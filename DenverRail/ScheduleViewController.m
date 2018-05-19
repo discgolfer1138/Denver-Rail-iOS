@@ -22,7 +22,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
 @synthesize currentManualDate, currentManualStation;
 @synthesize audioPlayer;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         sharedLocationManager = [LocationManager instance];
@@ -34,7 +34,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
         // If first location needs to be set
         firstLoc = YES;
         
-        NSString *soundPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"flips3.aac"];
+        NSString *soundPath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"flips3.aac"];
 
         NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
         NSError *error = nil;
@@ -114,7 +114,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
     if (!self.currentManualDate)
         self.currentManualDate = [NSDate date]; 
     if (!self.currentManualStation)
-        self.currentManualStation = [sharedLocationManager.stations objectAtIndex:0];
+        self.currentManualStation = (sharedLocationManager.stations)[0];
     
     if (self.currentManualStation)
         [self updateCellsManualModeWithStation:self.currentManualStation date:self.currentManualDate];
@@ -160,7 +160,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
     int rowY = 0;
     
     int cutOffRow;
-    if ([[UIScreen mainScreen] applicationFrame].size.height > 480) cutOffRow = 10;
+    if ([UIScreen mainScreen].applicationFrame.size.height > 480) cutOffRow = 10;
     else cutOffRow = 8;
     
     NSMutableArray *newCells = [NSMutableArray new];
@@ -248,8 +248,8 @@ NSString *const MountainTimeZone = @"US/Mountain";
             absoluteTimeLabel.font = [UIFont systemFontOfSize:14];
           
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
-            [dateFormatter setDateFormat:@"h:mm aa"];
+            dateFormatter.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
+            dateFormatter.dateFormat = @"h:mm aa";
           
             absoluteTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:currentStop.date]];
           
@@ -258,8 +258,8 @@ NSString *const MountainTimeZone = @"US/Mountain";
         // If in manual mode display differently
         } else {
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
-            [dateFormatter setDateFormat:@"h:mm aa"];
+            dateFormatter.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
+            dateFormatter.dateFormat = @"h:mm aa";
             
             UILabel *absoluteTimeLabel = [UILabel new];
             absoluteTimeLabel.frame = CGRectMake(34, 5, 150, 24);
@@ -282,7 +282,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
     }
     
     // If there are currently any cells already showing swap out the old time subview for the new one
-    if ([self.view.subviews count] > 0) {
+    if ((self.view.subviews).count > 0) {
         
         float rowHeight = 32.5;
         if (isAutoMode)
@@ -300,7 +300,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
             if (rowIndex == cutOffRow - 3 && !isAutoMode)
                 rowHeight += 1.50;
             
-            UIView *existingRowView = [self.view.subviews objectAtIndex:rowIndex];
+            UIView *existingRowView = (self.view.subviews)[rowIndex];
              
             existingRowView.frame = CGRectMake(0, rowY, 272, rowHeight);
 
@@ -313,7 +313,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
                 }
             }
             
-            NSArray *args = [NSArray arrayWithObjects:existingRowView, bgViewNew, nil];
+            NSArray *args = @[existingRowView, bgViewNew];
             
             int randomNumber = arc4random() % 100;
             [self performSelector:@selector(performAnimation:) withObject:args
@@ -331,9 +331,9 @@ NSString *const MountainTimeZone = @"US/Mountain";
 
 - (void)cellTapped:(UIGestureRecognizer*)recognizer {
   // Only respond if we're in the ended state (similar to touchupinside)
-  if( [recognizer state] == UIGestureRecognizerStateEnded ) {
+  if( recognizer.state == UIGestureRecognizerStateEnded ) {
     // The View that was tapped
-    UIView* cellView = (UIView*)[recognizer view];
+    UIView* cellView = (UIView*)recognizer.view;
     for (UIView *i in cellView.subviews) {
       if (i.tag == 1) {
         for (UIView *j in i.subviews) {
@@ -358,8 +358,8 @@ NSString *const MountainTimeZone = @"US/Mountain";
 // Perform the cell flipping animation
 - (void)performAnimation:(NSArray *)args {
     
-    UIView *existingRowView = [args objectAtIndex:0];
-    UIView *bgViewNew = [args objectAtIndex:1];
+    UIView *existingRowView = args[0];
+    UIView *bgViewNew = args[1];
     
     int randomNumber = arc4random() % 100;
     
@@ -389,7 +389,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
 
 // Play the flipping sound
 - (void)playFlipsSound {
-    BOOL playSounds = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).playSounds;
+    BOOL playSounds = ((AppDelegate *)[UIApplication sharedApplication].delegate).playSounds;
     
     if (playSounds) [self.audioPlayer play];    
 }

@@ -18,11 +18,13 @@
 @property (strong, nonatomic) NSString *columnName;
 @property (strong) CLLocation *location;
 
-- (id)initWithColumnName:(NSString *)columnName
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithColumnName:(NSString *)columnName
                 latitude:(double)latitude
                longitude:(double)longitude
                southOnly:(BOOL)southOnly
                northOnly:(BOOL)northOnly
-                eastWest:(BOOL)eastWest;
+                eastWest:(BOOL)eastWest NS_DESIGNATED_INITIALIZER;
 
 @end

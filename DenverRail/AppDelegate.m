@@ -27,7 +27,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self initializeAudioPreferences];
     [self initializeAudio];
     [self initStations];
-	
+    
     return YES;
 }
 
@@ -37,7 +37,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 }
 
 - (void)initStations {
-	self.stations = [NSMutableArray new];
+    self.stations = [NSMutableArray new];
     
     // Read station data from plist file
     NSString *path = [[NSBundle mainBundle] pathForResource: @"Stations" ofType: @"plist"];
@@ -46,12 +46,12 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     for(NSDictionary *station in stations){
         // Initializes the station with its name, coordinates, and directional booleans
         [self.stations addObject:[[Station alloc]
-                                  initWithColumnName: [station objectForKey: @"name"]
-                                  latitude: [[station objectForKey: @"latitude"] doubleValue]
-                                  longitude: [[station objectForKey: @"longitude"] doubleValue]
-                                  southOnly: [[station objectForKey: @"southOnly"] boolValue]
-                                  northOnly: [[station objectForKey: @"northOnly"] boolValue]
-                                  eastWest: [[station objectForKey: @"eastWest"] boolValue]
+                                  initWithColumnName: station[@"name"]
+                                  latitude: [station[@"latitude"] doubleValue]
+                                  longitude: [station[@"longitude"] doubleValue]
+                                  southOnly: [station[@"southOnly"] boolValue]
+                                  northOnly: [station[@"northOnly"] boolValue]
+                                  eastWest: [station[@"eastWest"] boolValue]
         ]];
     }
 }
@@ -65,29 +65,29 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 }
 
 - (void)initializeAudioPreferences {
-        NSString *pathStr = [[NSBundle mainBundle] bundlePath];
-		NSString *settingsBundlePath = [pathStr stringByAppendingPathComponent:@"Settings.bundle"];
-		NSString *finalPath = [settingsBundlePath stringByAppendingPathComponent:@"Root.plist"];
+        NSString *pathStr = [NSBundle mainBundle].bundlePath;
+        NSString *settingsBundlePath = [pathStr stringByAppendingPathComponent:@"Settings.bundle"];
+        NSString *finalPath = [settingsBundlePath stringByAppendingPathComponent:@"Root.plist"];
         
-		NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
-		NSArray *prefSpecifierArray = [settingsDict objectForKey:@"PreferenceSpecifiers"];
+        NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+        NSArray *prefSpecifierArray = settingsDict[@"PreferenceSpecifiers"];
     
         NSNumber *playSoundDefault;
         
-		NSDictionary *prefItem;
-		for (prefItem in prefSpecifierArray) {
+        NSDictionary *prefItem;
+        for (prefItem in prefSpecifierArray) {
            
-			NSString *keyValueStr = [prefItem objectForKey:@"Key"];
-			id defaultValue = [prefItem objectForKey:@"DefaultValue"];
-			if ([keyValueStr isEqualToString:kPlaySoundsKey]) {
+            NSString *keyValueStr = prefItem[@"Key"];
+            id defaultValue = prefItem[@"DefaultValue"];
+            if ([keyValueStr isEqualToString:kPlaySoundsKey]) {
                 playSoundDefault = defaultValue;
-			}
-		}
+            }
+        }
         
-		NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:playSoundDefault, kPlaySoundsKey, nil];
+        NSDictionary *appDefaults = @{kPlaySoundsKey: playSoundDefault};
       
-		[[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-		[[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
         [[NSUserDefaults standardUserDefaults] setValue:kPreferencesSetKey forKey:kPreferencesSetKey];
 

@@ -31,7 +31,7 @@ static LocationManager *sharedSingleton;
         
         sharedSingleton = [LocationManager new];
         
-        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate]; 
+        AppDelegate *ad = (AppDelegate *)[UIApplication sharedApplication].delegate; 
         sharedSingleton.stations = ad.stations;
         
         sharedSingleton.locationManager = [CLLocationManager new];
@@ -39,9 +39,9 @@ static LocationManager *sharedSingleton;
         sharedSingleton.locationManager.delegate = sharedSingleton;
         sharedSingleton.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         sharedSingleton.locationManager.distanceFilter = 50;
-		
-		// Attempt to fire up location services based on availability and authorization
-		[sharedSingleton activateLocationServices];
+        
+        // Attempt to fire up location services based on availability and authorization
+        [sharedSingleton activateLocationServices];
     }
 }
 
@@ -64,13 +64,13 @@ static LocationManager *sharedSingleton;
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
    
     self.location = locations[0];
-    CLLocation * newLocation = [locations lastObject];
+    CLLocation * newLocation = locations.lastObject;
        
     // Update closest station
     int i = 0;
     for(Station *station in self.stations) {
         if (!self.closestStation || ([newLocation distanceFromLocation:station.location] < [newLocation distanceFromLocation:self.closestStation.location]))
-            self.closestStation = [self.stations objectAtIndex:i];
+            self.closestStation = (self.stations)[i];
         i++;
     }
     
@@ -79,80 +79,80 @@ static LocationManager *sharedSingleton;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-	
-	if ([error code] == kCLErrorDenied) {
-		[self locationServicesNotAvailable];
-	}
+    
+    if (error.code == kCLErrorDenied) {
+        [self locationServicesNotAvailable];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-	if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-		[self locationServicesAvailable];
-	}
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self locationServicesAvailable];
+    }
 }
 
 #pragma mark - Activating and deactivating location services methods -
 
 - (void)activateLocationServices {
-	
-	// Ensure location services are enabled
-	if ([CLLocationManager locationServicesEnabled]) {
-		
-		switch ([CLLocationManager authorizationStatus]) {
-			case kCLAuthorizationStatusNotDetermined:
-			{
+    
+    // Ensure location services are enabled
+    if ([CLLocationManager locationServicesEnabled]) {
+        
+        switch ([CLLocationManager authorizationStatus]) {
+            case kCLAuthorizationStatusNotDetermined:
+            {
         // User has not been asked to approve access. Ask them.
         if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) { // iOS8+
           // Sending a message to avoid compile time error
           [sharedSingleton.locationManager requestWhenInUseAuthorization];
         }
-				break;
-			}
-			case kCLAuthorizationStatusRestricted:
-			case kCLAuthorizationStatusDenied:
-			{
-				// App is not authorized to use location services
-				[self locationServicesNotAvailable];
-				break;
-			}
-			case kCLAuthorizationStatusAuthorizedAlways:
-			case kCLAuthorizationStatusAuthorizedWhenInUse:
-			{
-				// Location services are available and app is allowed to use them
-				[self locationServicesAvailable];
-				break;
-			}
-		}
-		
-	} else {
-		
-		// Location services are not available
-		[self locationServicesNotAvailable];
-	}
+                break;
+            }
+            case kCLAuthorizationStatusRestricted:
+            case kCLAuthorizationStatusDenied:
+            {
+                // App is not authorized to use location services
+                [self locationServicesNotAvailable];
+                break;
+            }
+            case kCLAuthorizationStatusAuthorizedAlways:
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+            {
+                // Location services are available and app is allowed to use them
+                [self locationServicesAvailable];
+                break;
+            }
+        }
+        
+    } else {
+        
+        // Location services are not available
+        [self locationServicesNotAvailable];
+    }
 }
 
 - (void)locationServicesNotAvailable {
-	
-	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:DRUserDefaultKey.locationDenied];
-	[sharedSingleton.locationManager stopUpdatingHeading];
-	[sharedSingleton.locationManager stopUpdatingLocation];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationDenied object:nil];
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[LocalizedStrings note]
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:DRUserDefaultKey.locationDenied];
+    [sharedSingleton.locationManager stopUpdatingHeading];
+    [sharedSingleton.locationManager stopUpdatingLocation];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationDenied object:nil];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[LocalizedStrings note]
                                                     message:[LocalizedStrings cannotDetermineLocation]
-												   delegate:nil
+                                                   delegate:nil
                                           cancelButtonTitle:[LocalizedStrings ok]
                                           otherButtonTitles:nil];
-	[alert show];
+    [alert show];
 }
 
 - (void)locationServicesAvailable {
-	
-	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:DRUserDefaultKey.locationDenied];
-	[sharedSingleton.locationManager startUpdatingLocation];
-	[sharedSingleton.locationManager startUpdatingHeading];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationApproved object:nil];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:DRUserDefaultKey.locationDenied];
+    [sharedSingleton.locationManager startUpdatingLocation];
+    [sharedSingleton.locationManager startUpdatingHeading];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationApproved object:nil];
 }
 
 #pragma mark - Heading and distance methods -

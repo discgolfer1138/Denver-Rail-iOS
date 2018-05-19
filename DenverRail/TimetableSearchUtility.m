@@ -22,9 +22,9 @@
 +(NSArray *)getTimetableWithDate:(NSDate *)date andStation:(Station *)station directionIsNorth:(BOOL)isNorth {
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
+    calendar.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
     NSDateComponents *dateComponents = [calendar components:NSCalendarUnitWeekday fromDate:date];
-    NSInteger weekday = [dateComponents weekday];
+    NSInteger weekday = dateComponents.weekday;
 
     NSString *scheduleCode = @"MT";
 
@@ -47,7 +47,7 @@
     
     NSString *limit;
     int limitInt;
-    if ([[UIScreen mainScreen] applicationFrame].size.height > 480) limitInt = 11;
+    if ([UIScreen mainScreen].applicationFrame.size.height > 480) limitInt = 11;
     else limitInt = 9;
     
     limit = [NSString stringWithFormat:@"%i", limitInt];
@@ -117,23 +117,23 @@
     [rs close];
     [db close];
     
-    if ([stops count] < limitInt) {
+    if (stops.count < limitInt) {
         NSDate *today = [NSDate date];
         NSDateComponents *todayComponents = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:today];
-        [todayComponents setHour:0];
-        [todayComponents setMinute:0];
-        [todayComponents setSecond:1];
+        todayComponents.hour = 0;
+        todayComponents.minute = 0;
+        todayComponents.second = 1;
         NSDate *newDate = [calendar dateFromComponents:todayComponents];
         NSMutableArray *tomorrowStops = [[NSMutableArray alloc] initWithArray:[self getTimetableWithDate:newDate andStation:station directionIsNorth:isNorth]];
         [tomorrowStops removeObjectsInArray:stops];
         [stops addObjectsFromArray:tomorrowStops];
-        if ([stops count] > limitInt) {
+        if (stops.count > limitInt) {
             for (NSUInteger i = stops.count-1; i > 8; i--)
                 [stops removeLastObject];
         }
     }
     
-    if ([stops count] > 0) {
+    if (stops.count > 0) {
         return stops;
     }
     return nil;
@@ -221,10 +221,10 @@
                                                            NSCalendarUnitDay |
                                                            NSCalendarUnitWeekday) fromDate:date];
   
-  NSInteger day = [dateComponents day];
-  NSInteger month = [dateComponents month];
-  NSInteger weekday = [dateComponents weekday];
-  NSInteger weekOfMonth = [dateComponents weekOfYear];
+  NSInteger day = dateComponents.day;
+  NSInteger month = dateComponents.month;
+  NSInteger weekday = dateComponents.weekday;
+  NSInteger weekOfMonth = dateComponents.weekOfYear;
   
   // New years
   if (day == 1 && month == 1)
@@ -243,11 +243,11 @@
     
     // Add a week and see if we end up in june
     NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:7];
+    comps.day = 7;
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
     NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
-    if ([newDateComponents month] == 6)
+    if (newDateComponents.month == 6)
       return YES;
   }
   
@@ -256,11 +256,11 @@
     
     // Subtract a week and see if we end up in august
     NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:-7];
+    comps.day = -7;
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
     NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
-    if ([newDateComponents month] == 8)
+    if (newDateComponents.month == 8)
       return YES;
   }
   
@@ -268,11 +268,11 @@
   if (month == 11 && weekday == 5 && weekOfMonth > 3) {
     // Add a week and see if we end up in december
     NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:7];
+    comps.day = 7;
     NSDate *newDate = [calendar dateByAddingComponents:comps toDate:date  options:0];
     NSDateComponents *newDateComponents = [calendar components:(NSCalendarUnitMonth) fromDate:newDate];
     
-    if ([newDateComponents month] == 12)
+    if (newDateComponents.month == 12)
       return YES;
   }
   return NO;
@@ -281,18 +281,18 @@
 // NSDate to int value
 +(int)convertDateToInt:(NSDate *)date {
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
-  [dateFormatter setDateFormat:@"HHmmss"];
+  dateFormatter.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
+  dateFormatter.dateFormat = @"HHmmss";
   NSString *timeString = [dateFormatter stringFromDate:date];
-  return [timeString intValue];
+  return timeString.intValue;
 }
 
 // DB date to NSDate
 +(NSDate *)convertDBDateIntToDate:(int)timeInt withCalendar:(NSCalendar *)calendar {
   // Assume today
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
-  [dateFormatter setDateFormat:@"HHmmss"];
+  dateFormatter.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
+  dateFormatter.dateFormat = @"HHmmss";
   
   NSString *dateString = nil;
   if (timeInt > 239999)
@@ -315,9 +315,9 @@
   NSDateComponents *todayComponents = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                                                   fromDate:today];
   
-  [todayComponents setHour:[dateComponentsFromDBHMS hour]];
-  [todayComponents setMinute:[dateComponentsFromDBHMS minute]];
-  [todayComponents setSecond:[dateComponentsFromDBHMS second]];
+  todayComponents.hour = dateComponentsFromDBHMS.hour;
+  todayComponents.minute = dateComponentsFromDBHMS.minute;
+  todayComponents.second = dateComponentsFromDBHMS.second;
   NSDate *dbDate = [calendar dateFromComponents:todayComponents];
   
   if ([today compare:dbDate] == NSOrderedDescending) {
@@ -332,7 +332,7 @@
 // Directory path
 +(NSString *)documentsDirectoryPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *documentsDirectoryPath = paths[0];
     return documentsDirectoryPath;
 }
 @end

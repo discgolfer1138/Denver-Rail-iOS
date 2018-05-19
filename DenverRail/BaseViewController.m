@@ -70,14 +70,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDenied) name:DRNotificationName.locationDenied object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationApproved) name:DRNotificationName.locationApproved object:nil];
-	
+    
     // Default modes
     self.isAutoMode = YES;
     self.isMapMode = NO;
     
     // Add the schedule view to the view
     self.scheduleViewController = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
-    self.scheduleViewController.view.frame = CGRectMake(24, 52, self.scheduleViewController.view.frame.size.width, [[UIScreen mainScreen] applicationFrame].size.height - 122);
+    self.scheduleViewController.view.frame = CGRectMake(24, 52, self.scheduleViewController.view.frame.size.width, [UIScreen mainScreen].applicationFrame.size.height - 122);
     [self.topLevelSlider insertSubview:self.scheduleViewController.view belowSubview:self.middleSection];
     
     // Setup and load the search view controller
@@ -145,7 +145,7 @@
 -(void)adjustForFourInchScreen{
     
     // Checks to make sure the screen is larger than normal iPhones
-    if ([[UIScreen mainScreen] applicationFrame].size.height > 480) {
+    if ([UIScreen mainScreen].applicationFrame.size.height > 480) {
         
         UIImage *whiteBackground4Inch = [UIImage imageNamed:@"white-background-568h"];
         UIImage *middleBackground4Inch = [UIImage imageNamed:@"middle-568h"];
@@ -214,9 +214,9 @@
 }
 
 - (void)locationApproved {
-	self.arrow.hidden = NO;
-	self.distanceLabel.hidden = NO;
-	self.autoButton.alpha = 1;
+    self.arrow.hidden = NO;
+    self.distanceLabel.hidden = NO;
+    self.autoButton.alpha = 1;
 }
 
 // This means the position has been updated in either modes
@@ -241,14 +241,14 @@
     
     // Sets the number of digits to be displayed
     if (distance >= 9)
-        [formatter setMaximumFractionDigits:0];
+        formatter.maximumFractionDigits = 0;
     else
-        [formatter setMaximumFractionDigits:1];
+        formatter.maximumFractionDigits = 1;
   
     if (distance < 0)
         self.distanceLabel.text = [NSString stringWithFormat:@"NA"];
     else
-        self.distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:[NSNumber numberWithFloat:distance]]];
+        self.distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:@(distance)]];
     
 }
 
@@ -268,8 +268,8 @@
 
 // Turn the directional arrow
 - (void)rotateArrow:(int)degrees {
-	self.arrow.transform = CGAffineTransformIdentity;
-	self.arrow.transform = CGAffineTransformMakeRotation(degrees*0.0174532925);
+    self.arrow.transform = CGAffineTransformIdentity;
+    self.arrow.transform = CGAffineTransformMakeRotation(degrees*0.0174532925);
 }
 
 #pragma mark - Lightboard -
@@ -320,13 +320,13 @@
 // Used to either trigger the next stage of the animation or to reset the lightboard after showing the tap to edit message
 // it will reset back to either the station name or to search depending on the current state of the app
 -(void)timerFireMethod:(NSTimer*)theTimer {
-    if ([[theTimer userInfo] isKindOfClass:[NSNumber class]])
+    if ([theTimer.userInfo isKindOfClass:[NSNumber class]])
         [self animateLightboard];
     else
         if (self.isSearchMode) {
             [self changeLightboardTo:nil];
         } else {
-            [self changeLightboardTo:[theTimer userInfo]];
+            [self changeLightboardTo:theTimer.userInfo];
         }
 }
 
@@ -364,7 +364,7 @@
         // Scroll it
         self.stationNameLabelToAnimate = nameLabel;
         self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:)
-                                                           userInfo:[NSNumber numberWithBool:YES] repeats:NO];
+                                                           userInfo:@YES repeats:NO];
     }
     
     [self.stationNameView addSubview:nameLabel];
@@ -384,7 +384,7 @@
     
     if ([self moveLightboardLeftOneLED]) {
         self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(timerFireMethod:)
-                                                           userInfo:[NSNumber numberWithBool:YES] repeats:NO];
+                                                           userInfo:@YES repeats:NO];
     } else {
         self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(resetAnimation)
                                                            userInfo:nil repeats:NO];
@@ -427,7 +427,7 @@
 
 // Places the BrokenLED Image
 -(void)placeBrokenLED:(NSTimer*)theTimer {
-    UIImageView *brokenLED = [theTimer userInfo];
+    UIImageView *brokenLED = theTimer.userInfo;
     CGRect brokenLEDFrame = brokenLED.frame;
     
     CGRect lightboardFrame = self.stationNameView.frame;
@@ -445,14 +445,13 @@
                                   brokenLEDFrame.size.width,
                                   brokenLEDFrame.size.height);
     
-    [brokenLED setFrame:pixelRect];
+    brokenLED.frame = pixelRect;
     
     // Flicker the image
     [NSTimer scheduledTimerWithTimeInterval:.05 
                                      target:self 
                                    selector:@selector(flickerBrokenLED:) 
-                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:6],
-                                             @"times", brokenLED, @"brokenLED", nil] repeats:NO];
+                                   userInfo:@{@"times": @6, @"brokenLED": brokenLED} repeats:NO];
     
     // Set the next flicker : interval between 2 and 5 for next flicker
     float placeInterval = 10 + ((float)rand() / RAND_MAX) * 5;
@@ -462,25 +461,24 @@
 
 // Recursive function that flickers the broken LED
 - (void)flickerBrokenLED:(NSTimer*)theTimer {
-    NSNumber *times = [[theTimer userInfo] objectForKey:@"times"];
-    UIImageView *brokenLED = [[theTimer userInfo] objectForKey:@"brokenLED"];
+    NSNumber *times = theTimer.userInfo[@"times"];
+    UIImageView *brokenLED = theTimer.userInfo[@"brokenLED"];
     
     // Exit condition
-    if ([times intValue] == 0)
+    if (times.intValue == 0)
         return;
     
-    [brokenLED setHidden:![brokenLED isHidden]];
+    brokenLED.hidden = !brokenLED.hidden;
     
     // Determine interval for next toggle. .05 if it's hidden. random between .1 and .6 if not
     float flickerInterval = .05;
-    if (([times intValue] % 2) == 0)
+    if ((times.intValue % 2) == 0)
         flickerInterval = 0.1 + ((float)rand()/RAND_MAX)*1.1;
     
     [NSTimer scheduledTimerWithTimeInterval:flickerInterval 
                                      target:self 
                                    selector:@selector(flickerBrokenLED:) 
-                                   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:[times intValue]-1],
-                                             @"times", brokenLED, @"brokenLED", nil] repeats:NO];
+                                   userInfo:@{@"times": @(times.intValue-1), @"brokenLED": brokenLED} repeats:NO];
 }
 
 #pragma mark - Buttons -
@@ -521,7 +519,7 @@
         // Show the map
         } else {
             [UIView beginAnimations:nil context:nil];
-            self.topLevelSlider.frame = CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height +
+            self.topLevelSlider.frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height +
                                               self.topSection.frame.size.height, 320, self.topLevelSlider.frame.size.height);
             [UIView commitAnimations];
             
@@ -676,7 +674,7 @@
     
     
     // If 4 inch screen slight adjust
-    if ([[UIScreen mainScreen] applicationFrame].size.height > 480) {
+    if ([UIScreen mainScreen].applicationFrame.size.height > 480) {
         screenAdjust = 48;
         topAdjust = 2;
         middleAdjust = 100;
@@ -769,11 +767,11 @@
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     // Always use mountain no matter where we are
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
+    calendar.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
     NSDateComponents *nowComponents = [calendar components:
                                        (NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
     
-    NSInteger weekday = [nowComponents weekday];
+    NSInteger weekday = nowComponents.weekday;
     
     if (weekday == 1)
         [self.datePicker selectRow:2 inComponent:0 animated:YES];
@@ -784,7 +782,7 @@
     else if (weekday == 7)
         [self.datePicker selectRow:1 inComponent:0 animated:YES];
 
-    NSInteger hour = [nowComponents hour];
+    NSInteger hour = nowComponents.hour;
     
     // AM
     if (hour < 12) {
@@ -802,7 +800,7 @@
         [self.datePicker selectRow:(hour - 13) inComponent:1 animated:YES];
     }
     
-    NSInteger minute = [nowComponents minute];
+    NSInteger minute = nowComponents.minute;
     [self.datePicker selectRow:minute inComponent:2 animated:YES];
 }
 
@@ -843,29 +841,29 @@
         self.timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
     
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [cal setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
+    cal.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
     NSDateComponents *comps = [NSDateComponents new];
-    [comps setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
+    comps.timeZone = [NSTimeZone timeZoneWithName:MountainTimeZone];
     
-    [comps setYear:2013];
-    [comps setMonth:1];
-    [comps setCalendar:cal];
+    comps.year = 2013;
+    comps.month = 1;
+    comps.calendar = cal;
     
     if (isPM && hour != 12) {
-        [comps setHour:hour+12];
+        comps.hour = hour+12;
     } else if (!isPM && hour == 12) {
-        [comps setHour:0]; 
+        comps.hour = 0; 
     } else {
-        [comps setHour:hour];
+        comps.hour = hour;
     }
    
-    [comps setMinute:minute];
+    comps.minute = minute;
     if (dayOfWeek == 0)
-        [comps setDay:2];
+        comps.day = 2;
     else if (dayOfWeek == 1)
-        [comps setDay:7];
+        comps.day = 7;
     else if (dayOfWeek > 1)
-        [comps setDay:1];
+        comps.day = 1;
     
     NSDate *md = [cal dateFromComponents:comps];
 
@@ -874,11 +872,11 @@
 
 // Display the time picker
 -(void)showPickerView {
-    if (self.pickerView.frame.origin.y >= [[UIScreen mainScreen] applicationFrame].size.height) {
+    if (self.pickerView.frame.origin.y >= [UIScreen mainScreen].applicationFrame.size.height) {
         
         // Offscreen, so slide it up
         CGRect pickerFrame = self.pickerView.frame;
-        pickerFrame.origin.y = [[UIScreen mainScreen] applicationFrame].size.height - self.pickerView.frame.size.height;
+        pickerFrame.origin.y = [UIScreen mainScreen].applicationFrame.size.height - self.pickerView.frame.size.height;
 
         [UIView animateWithDuration:0.2
                          animations:^
@@ -890,11 +888,11 @@
 
 // Hides the time picker
 -(void)hidePickerView {
-    if (self.pickerView.frame.origin.y < [[UIScreen mainScreen] applicationFrame].size.height) {
+    if (self.pickerView.frame.origin.y < [UIScreen mainScreen].applicationFrame.size.height) {
         
         // Onscreen, so slide it down
         [UIView beginAnimations:nil context:nil];
-        self.pickerView.frame = CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height,
+        self.pickerView.frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height,
                                            self.pickerView.frame.size.width,
                                            self.pickerView.frame.size.height);
         [UIView commitAnimations];
@@ -903,67 +901,67 @@
 
 // Number of components in the time picker should be 4
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return 4;
+    return 4;
 }
 
 // Number of rows per wheel 
 - (NSInteger)pickerView: (UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger) component  { 
-	switch (component) {
-		case 0: return 5;
-		case 1: return 12;
-		case 2: return 60;
-		case 3: return 2;
-	}
+    switch (component) {
+        case 0: return 5;
+        case 1: return 12;
+        case 2: return 60;
+        case 3: return 2;
+    }
     return -1;
 }
 
 // Time picker view 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
     
-	if (component == 0) {
-		return 110.0;
-	} else if (component == 3) {
-		return 55.0;
-	}
-	return 46;
+    if (component == 0) {
+        return 110.0;
+    } else if (component == 3) {
+        return 55.0;
+    }
+    return 46;
 }
 
 // Return the name of each cell by row and component 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-	// Iterate through day of week / hour (1-12) / Minute (0-59) / AM or PM
-	switch(component) {
-		case 0:
-			switch (row) {
-				case 0: return [LocalizedStrings weekday];
+    // Iterate through day of week / hour (1-12) / Minute (0-59) / AM or PM
+    switch(component) {
+        case 0:
+            switch (row) {
+                case 0: return [LocalizedStrings weekday];
                 case 1: return [LocalizedStrings friday];
                 case 2: return [LocalizedStrings saturday];
                 case 3: return [LocalizedStrings sunday];
                 case 4: return [LocalizedStrings holiday];
-			}
+            }
             
         // Hour
-		case 1:
+        case 1:
             return [NSString stringWithFormat:@"%li", (long)(row+1)];
             
         // Minute
-		case 2:
+        case 2:
             {
                 NSString *minute = [NSString stringWithFormat:@"%li", (long)row];
-                if ([minute length] < 2)
+                if (minute.length < 2)
                     minute = [NSString stringWithFormat:@"0%@", minute];
                 return minute;
             }
             
         // Am or PM
-		case 3:
-			if (row == 0) {
-				return @"AM";
-			} else {
-				return @"PM";
-			}
-	}
-	return nil;
+        case 3:
+            if (row == 0) {
+                return @"AM";
+            } else {
+                return @"PM";
+            }
+    }
+    return nil;
 } 
 
 // Keep portrait orientation

@@ -331,7 +331,7 @@
 		7E0CC8FD20A3FBB000345BBA /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29@2x.png"; path = "../../Assets/Images/App Icons/Icon-29@2x.png"; sourceTree = "<group>"; };
 		7E0CC8FE20A3FBB000345BBA /* Icon-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29@3x.png"; path = "../../Assets/Images/App Icons/Icon-29@3x.png"; sourceTree = "<group>"; };
 		7E0CC90120A3FBF400345BBA /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@3x.png"; path = "../../Assets/Images/App Icons/Icon-40@3x.png"; sourceTree = "<group>"; };
-		7E66BDA320A0151E0062FCA7 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = schedules.sqlite; path = ../Assets/Database/schedules.sqlite; sourceTree = "<group>"; };
+		7E66BDA320A0151E0062FCA7 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = schedules.sqlite; path = DenverRail/Assets/Database/schedules.sqlite; sourceTree = SOURCE_ROOT; };
 		7E66BDA520A01EF50062FCA7 /* r-line-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "r-line-square.png"; path = "../../Assets/Images/Line Icons/r-line-square.png"; sourceTree = "<group>"; };
 		7E66BDA620A01EF50062FCA7 /* b-line-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "b-line-square@2x.png"; path = "../../Assets/Images/Line Icons/b-line-square@2x.png"; sourceTree = "<group>"; };
 		7E66BDA720A01EF50062FCA7 /* g-line-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "g-line-circle@2x.png"; path = "../../Assets/Images/Line Icons/g-line-circle@2x.png"; sourceTree = "<group>"; };
@@ -627,8 +627,9 @@
 			children = (
 				7E66BDA320A0151E0062FCA7 /* schedules.sqlite */,
 			);
-			path = Database;
-			sourceTree = "<group>";
+			name = Database;
+			path = DenverRail/Assets/Database;
+			sourceTree = SOURCE_ROOT;
 		};
 		7E8278AD20A97332000FB6A4 /* Line Icons */ = {
 			isa = PBXGroup;
@@ -793,7 +794,7 @@
 				ORGANIZATIONNAME = "Tack Mobile";
 				TargetAttributes = {
 					39E7F0DB14DE05F0007C8617 = {
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = "";
 					};
 					8CA25C171CFF38340092DBCB = {
 						CreatedOnToolsVersion = 7.3;
@@ -1201,7 +1202,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DenverRail/denverrail-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1236,7 +1238,8 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DenverRail/denverrail-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -31,10 +31,10 @@
     NSMutableArray *results = [NSMutableArray new];
     
     int start = 0;
-    for(int i=0; i<[self length]; i++) {
+    for(int i=0; i<self.length; i++) {
         
         BOOL isAtSplitChar = [self characterAtIndex:i] == ch;
-        BOOL isAtEnd = i == [self length] - 1;
+        BOOL isAtEnd = i == self.length - 1;
         
         if (isAtSplitChar || isAtEnd) {
             
