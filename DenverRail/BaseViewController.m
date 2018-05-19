@@ -944,7 +944,7 @@
             
         // Hour
 		case 1:
-			return [NSString stringWithFormat:@"%li", row+1];
+            return [NSString stringWithFormat:@"%li", (long)(row+1)];
             
         // Minute
 		case 2:
